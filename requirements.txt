@@ -1,2 +1,6 @@
 Django
 psycopg2
+python-mimeparse
+lxml
+defusedxml
+django-tastypie
