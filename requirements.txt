@@ -4,3 +4,5 @@ python-mimeparse
 lxml
 defusedxml
 django-tastypie
+psycopg2-binary
+djangorestframework
