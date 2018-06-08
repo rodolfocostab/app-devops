@@ -1,0 +1,25 @@
+---
+- name: Instalando pacote git
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+  - git
+
+- name: Limpa diretorio ansible caso exista
+  file:
+    path: /var/www/app-devops
+    state: absent
+  ignore_errors: yes
+
+- name: Clonando repositorio
+      git: repo=https://rodolfocostab@github.com/rodolfocostab/app-devops.git
+           dest=/var/www
+           force=yes
+           recursive=no
+
+- name: Docker-compose up
+  command: docker-compose up -d
+  args:
+    chdir: /var/www/app-devops
