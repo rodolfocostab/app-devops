@@ -1,5 +1,5 @@
 ---
-- hosts: 'desenv'
+- hosts: 'localhost'
   user: root
   roles:
    - docker

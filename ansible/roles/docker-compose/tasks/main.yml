@@ -3,9 +3,9 @@
   apt:
     name: "{{ item }}"
     state: present
-    update_cache: yes
   with_items:
   - git
+  ignore_errors: yes
 
 - name: Limpa diretorio ansible caso exista
   file:
@@ -14,10 +14,11 @@
   ignore_errors: yes
 
 - name: Clonando repositorio
-      git: repo=https://rodolfocostab@github.com/rodolfocostab/app-devops.git
-           dest=/var/www
-           force=yes
-           recursive=no
+  git:
+    repo: https://rodolfocostab@github.com/rodolfocostab/app-devops.git
+    dest: /var/www/app-devops
+    force: yes
+    recursive: no
 
 - name: Docker-compose up
   command: docker-compose up -d
@@ -38,3 +39,7 @@
   command: python manage.py migrate
   args:
     chdir: /var/www/app-devops
+
+- name: Admin enter
+  command: echo "from django.contrib.auth.models import User; User.objects.filter(email='admin@example.com').delete(); User.objects.create_superuser('admin', 'admin@example.com', 'testedevops')" | python manage.py shell
+  chdir: /var/www/app-devops
