@@ -16,13 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
-from api.views import PostResource
+from api.views import InicioResource
 
 from . import views
-post_resource = PostResource()
+inicio_resource = InicioResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # ex: /api/
-     url(r'^api/', include(post_resource.urls)),
+     url(r'^api/', include(inicio_resource.urls)),
 ]

@@ -1,0 +1,5 @@
+---
+- hosts: 'desenv'
+  user: root
+  roles:
+   - docker

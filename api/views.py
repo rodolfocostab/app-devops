@@ -1,9 +1,9 @@
-from api.models import Post
+from api.models import Inicio
 from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
 
-class PostResource(ModelResource):
+class InicioResource(ModelResource):
     class Meta:
-        resource_name = 'post'
-        queryset = Post.objects.all()
+        resource_name = 'inicio'
+        queryset = Inicio.objects.all()
         authorization = Authorization()
