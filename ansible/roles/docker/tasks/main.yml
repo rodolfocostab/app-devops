@@ -1,0 +1,53 @@
+---
+- name: Instalando pacotes docker e python
+  apt:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  with_items:
+  - python
+  - python-pip
+  - python-devel
+  - libffi-devel
+  - openssl-devel
+
+- name: Adicionando Docker repo
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docer-ce.repo
+  become: yes
+
+- name: Habilitando Docker Edge repo
+  ini_file:
+    dest: /etc/yum.repos.d/docer-ce.repo
+    section: 'docker-ce-edge'
+    option: enabled
+    value: 0
+  become: yes
+
+- name: Habilitando Docker Test repo
+  ini_file:
+    dest: /etc/yum.repos.d/docer-ce.repo
+    section: 'docker-ce-test'
+    option: enabled
+    value: 0
+  become: yes
+
+- name: Instalando Docker
+  package:
+    name: docker-ce
+    state: latest
+  become: yes
+
+- name: Start Docker-CE
+  service:
+    name: docker
+    enabled: yes
+    state: started
+  become: yes
+
+- name: Docker-compose install version
+  pip:
+    name: docker-compose
+    version: 1.9.0
+    state: present
