@@ -23,3 +23,18 @@
   command: docker-compose up -d
   args:
     chdir: /var/www/app-devops
+
+- name: Python migrate banco
+  command: python manage.py migrate
+  args:
+    chdir: /var/www/app-devops
+
+- name: Python migrations banco
+  command: python manage.py makemigrations api
+  args:
+    chdir: /var/www/app-devops
+
+- name: Python migrate banco final
+  command: python manage.py migrate
+  args:
+    chdir: /var/www/app-devops
