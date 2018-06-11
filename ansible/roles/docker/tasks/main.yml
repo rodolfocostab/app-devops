@@ -2,7 +2,6 @@
 - name: Instalando pacotes docker e python
   apt:
     name: "{{ item }}"
-    update_cache: yes
   with_items:
   - apt-transport-https
   - ca-certificates
@@ -10,13 +9,11 @@
   - software-properties-common
   - python
   - python-pip
-  ignore_errors: yes
 
 - name: Instalando Docker
   apt:
     name: docker
   become: yes
-  ignore_errors: yes
 
 - name: Start Docker
   service:
