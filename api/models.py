@@ -9,7 +9,7 @@ class Inicio(models.Model):
         return self.inicio_date >= timezone.now() - datetime.timedelta(days=1)
 
 class Fim(models.Model):
-    component_name = models.ForeignKey(Inicio)
+    component_name = models.CharField(max_length=200)
     fim_date = models.DateTimeField(default=now)
     def was_published_recently(self):
         return self.fim_date >= timezone.now() - datetime.timedelta(days=1)

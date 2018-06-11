@@ -17,13 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include, url
 from api.views import InicioResource
-
+from api.views import FimResource
 from . import views
+
 inicio_resource = InicioResource()
+fim_resource = FimResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # ex: /api/
      url(r'^api/', include(inicio_resource.urls)),
-     url(r'^api/', include(fim_resource.urls)),
 ]

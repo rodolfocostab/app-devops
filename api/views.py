@@ -1,4 +1,5 @@
 from api.models import Inicio
+from api.models import Fim
 from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
 
