@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'postgres',
         'USER': 'docker',
         'PASSWORD': 'docker',
-        'HOST': '172.17.0.2',
+        'HOST': '172.18.0.2',
         'PORT': 5432,
     }
 }
