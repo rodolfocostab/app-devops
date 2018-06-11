@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # ex: /api/
      url(r'^api/', include(inicio_resource.urls)),
+     url(r'^api/', include(fim_resource.urls)),
 ]

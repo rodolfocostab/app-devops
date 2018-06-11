@@ -7,3 +7,10 @@ class InicioResource(ModelResource):
         resource_name = 'inicio'
         queryset = Inicio.objects.all()
         authorization = Authorization()
+
+class FimResource(ModelResource):
+    class Meta:
+        resource_name = 'fim'
+        queryset = Fim.objects.all()
+        authorization = Authorization()
+        
