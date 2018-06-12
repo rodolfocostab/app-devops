@@ -27,19 +27,19 @@
 - name: Python migrate banco
   command: python manage.py migrate
   args:
-    chdir: /var/www/app-devops
+    chdir: /var/www/app-devops/app
 
 - name: Python migrations banco
   command: python manage.py makemigrations api
   args:
-    chdir: /var/www/app-devops
+    chdir: /var/www/app-devops/app
 
 - name: Python migrate banco final
   command: python manage.py migrate
   args:
-    chdir: /var/www/app-devops
+    chdir: /var/www/app-devops/app
 
 - name: Admin enter
   command: echo "from django.contrib.auth.models import User; User.objects.filter(email='admin@example.com').delete(); User.objects.create_superuser('admin', 'admin@example.com', 'testedevops')" | python manage.py shell
   args:
-    chdir: /var/www/app-devops
+    chdir: /var/www/app-devops/app

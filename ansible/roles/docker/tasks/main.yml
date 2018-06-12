@@ -8,7 +8,7 @@
   - curl
   - software-properties-common
   - python
-  - python-pip
+  - python3-pip
 
 - name: Instalando Docker
   apt:
