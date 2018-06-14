@@ -30,7 +30,7 @@
     chdir: /var/www/app-devops/app
 
 - name: Python migrations banco
-  command: python manage.py makemigrations api
+  command: python manage.py makemigrations app
   args:
     chdir: /var/www/app-devops/app
 
