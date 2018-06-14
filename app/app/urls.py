@@ -23,7 +23,6 @@ inicio_resource = InicioResource()
 fim_resource = FimResource()
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     # ex: /api/
      url(r'^inicio/', include(inicio_resource.urls)),
      url(r'^fim/', include(fim_resource.urls)),
