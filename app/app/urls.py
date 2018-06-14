@@ -24,6 +24,7 @@ fim_resource = FimResource()
 
 urlpatterns = [
     # ex: /api/
+     url(r'^admin/', include(admin.urls)),
      url(r'^inicio/', include(inicio_resource.urls)),
      url(r'^fim/', include(fim_resource.urls)),
 ]
