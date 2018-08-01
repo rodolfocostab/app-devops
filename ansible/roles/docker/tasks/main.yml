@@ -9,10 +9,11 @@
   - software-properties-common
   - python
   - python3-pip
+  - python-pip
 
 - name: Instalando Docker
   apt:
-    name: docker
+    name: docker.io
   become: yes
 
 - name: Start Docker
@@ -27,3 +28,6 @@
     name: docker-compose
     version: 1.9.0
     state: present
+
+- name: Python3 install django
+  command: pip3 install django-tastypie
